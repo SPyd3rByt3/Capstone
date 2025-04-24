@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contact Me {% endblock title %}
+
+{% block content %}
+
+<section class="contact-section center-column">
+
+    <h1>Contact Me</h1>
+    <p>Want to get in touch? Fill out the form below:</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="field">
+            <label>Name</label>
+            {{ form.name }}
+        </div>
+        <!-- {{ form.as_p }} -->
+
+        <div class="field">
+            <label>Email</label>
+            {{ form.email }}
+        </div>
+
+        <div class="field">
+            <label>Message</label>
+            <br />
+            {{ form.message }}
+        </div>
+
+        <button type="submit">Send message</button>
+    </form>
+</section>
+    <img class="the-gif" src="{% static 'WTF.gif.gif' %}" alt="Gif Photo">
+{% endblock content %}

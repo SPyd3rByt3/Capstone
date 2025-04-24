@@ -1,0 +1,66 @@
+Create a venv
+python3 -m venv venv
+
+
+Activate the venv
+Win: venv\Scripts\activate
+
+Mac: souce venv/bin/activate
+
+
+Install django:
+python3 -m pip install django
+
+
+Create a django project:
+django-admin startproject config .
+
+
+Initialize the git repo:
+git init
+
+
+
+Create a django app:
+python3 manage.py startapp pages
+
+
+
+
+set the github remote
+- create the repo
+- copy the url
+run:
+git remote add origin <url>
+
+Stage changes
+git add -A
+
+
+Create a commit
+git commit -m "<MESSAGE>"
+
+
+Push your changes
+first time:
+ git push -u origin main       (or master)
+
+nth time:
+git push
+
+
+
+
+
+# make migrations
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+
+SuperUser: seth
+seth@test.com
+password: capstone
+
+
+Steps:
+

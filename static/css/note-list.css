@@ -1,0 +1,45 @@
+.note-list {
+    padding: 12px;
+}
+
+.note-list h1 {
+    text-align: center;
+    color: #9e1717;
+}
+
+.note-list .all-notes {
+    display: flex;
+}
+
+.note-list .note-item {
+    background-color: #bbd82a;
+    border: 1px solid #d67e7e;
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.note-list .note-item h5 {
+    color: #9e1717;
+    }
+
+.note-list .note-item label {
+    color:chartreuse
+}
+
+.note-list .note-item img {
+    max-width: 100%;
+    height: 150px;
+    margin-bottom: 6px;
+}
+
+.note-list .header {
+    display: flex;
+    align-items: center;
+}
+
+.note-list .header h1 {
+    flex: 1;
+}
+

@@ -1,0 +1,35 @@
+/* Custom navbar styles for sleek black and grey theme */
+
+.custom-navbar {
+  background-color: #121212; /* very dark grey / black */
+  border-bottom: 1px solid #333; /* subtle border */
+}
+
+.custom-navbar .navbar-brand {
+  color: #e0e0e0; /* light grey */
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #ffffff; /* white on hover */
+}
+
+.custom-navbar .nav-link {
+  color: #b0b0b0; /* medium grey */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: #ffffff; /* white */
+}
+
+.navbar-toggler {
+  border-color: #444;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); /* invert the default icon color to white */
+}

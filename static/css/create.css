@@ -1,0 +1,12 @@
+
+
+.note-create field {
+margin-bottom: 12px;
+}
+
+.note-create .field label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    vertical-align: top;
+}

@@ -1,0 +1,131 @@
+/* * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+
+header {
+    background-color: var(--header-color);
+    height: 60px;
+    position: sticky;
+    top: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* .boldonse-regular {
+        font-family: "Boldonse", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+      
+    margin: 0;
+    padding: 0; */
+}
+
+.header-left-side {
+    width: 30%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right-side {
+    width: 70%;
+    background-color: blue;
+    display: flex; /* Ensure the right side is a flex container */
+    justify-content: flex-end; /* Align items to the right */
+}
+
+
+
+#nav-toggle:checked ~ .nav-options {
+    display: flex; /* Show when checked */
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-options {
+    display: none;
+}
+
+
+.nav-options a {
+    color: var(--text-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 2%;
+    padding: 1% 2%;
+}
+
+.nav-options a:hover {
+    border-bottom: solid 2px whitesmoke;
+}
+
+footer {
+    background-color: rgb(245, 98, 44);
+    height: 40px;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+.nav-toggle {
+    display: none; /* Hide by default */
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu {
+    display: none; /* Hidden by default */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px;
+}
+
+.menu a {
+    color: rgb(217, 249, 90);
+    text-decoration: none;
+}
+
+.menu.show {
+    display: block; /* Show the menu when toggled */
+}
+
+@media (min-width: 600px) {
+    .menu {
+        display: block; /* Show the menu on larger screens */
+    }
+}
+
+.nav-toggle {
+    display: none; /* Hide by default */
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-btn span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white; 
+    margin: 6px auto;
+}
+
+#nav-check, .nav-btn {
+    display: none;
+}

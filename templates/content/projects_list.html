@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Projects {% endblock title %}
+
+
+{% block content %}
+<section class="projects-section">  
+    <h2 class="section-title">Add Project</h2>
+
+    {% if user.is_authenticated %}
+        <a class="btn" href="{% url 'project_new' %}">Add Project</a>
+    {% endif %}
+
+    <div class="projects-list">
+
+    {% for project in projects %}
+        <div class="project-card">
+            <a href="{{project.repository}}" target="blank"> 
+                <img src="{{project.image}}" alt="Project image"> 
+
+                <p>{{project.name}}</p>
+                <p>{{project.description}}</p>
+                <p>{{project.year}}</p>
+
+                <div class="skills-container">
+                    {% for skill in project.skills.all %}
+                    <label class="text-label">{{skill.name}}</label>
+                    {%endfor%}
+                </div>
+            </a>
+
+            {% if user.is_authenticated %}
+            <div class="projects-controls">
+                <a class="btn" href="">Update</a>
+            </div>
+            {% endif %}
+        </div> <!--end of the CARD-->
+    {%endfor%}
+      
+    </div>
+</section>
+{% endblock content %}

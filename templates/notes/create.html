@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Create new note {% endblock %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/note-create.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class='note-create'>
+    <h1>Create a new note</h1>
+
+    <form method='post'> 
+        {% csrf_token %}
+
+        <div class="field">
+            <label>Title</label>
+            {{form.title}}
+        </div>
+
+        <div class="field">
+            <label>Image</label>
+            {{form.image}}
+        </div>
+
+        <div class="field">
+            <label>Content</label>
+            {{form.content}}
+        </div>
+
+        <!-- {{form.as_p}} -->
+
+        <button class="btn btn-dark">Save note</button>
+    </form>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+/* Color Palette */
+:root {
+    --background-color: #f0f0f030; /* Light Gray */
+    --text-color: #333; /* Dark Gray */
+    --header-color: #8c8274;
+    --footer-color: #8c8274;
+    --skill-color: #50592e;
+    --hover-color: #ffffff; 
+    --primary-color: #05ffffda; /* Coral */
+    --secondary-color: #6fa3ef; /* Sky Blue */
+    --accent-color: #f7c94c; /* Golden Yellow */
+
+    --boldonse-font: "Boldonse", system-ui;
+    --bungee-font: "Bungee Tint", sans-serif;
+    --lobster-font: "Lobster Two", sans-serif;
+    --DM-font: "DM Sans", sans-serif;
+
+}
+
+.profile-section {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(200, 248, 129);
+}
+
+.profile-photo {
+    width: 230px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid var(--primary-color); /* Optional border */
+}
+
+.profile-photo:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0
+    , 0.2); /* Add a subtle shadow */
+    opacity: 0.9; /* Reduce opacity on hover */
+}
+
+/* Reset styles */
+html { 
+    margin-right: 100px;
+    font-size: 16px;
+    font-display: var(--boldonse-font);
+    background-color: var(--skill-color); /* Fallback color */
+    background-image: url('img/pho dat bungee.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    font-family: var(--lobster-font), "Lobster Two", sans-serif;
+}
+
+/* Button styles for skills */
+.skill-button {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+.skill-button:nth-child(odd) {
+    background-color: green;
+}
+.skill-button:nth-child(even) {
+    background-color: yellow;
+}
+
+.html hero-cta {
+    font-family: var(--lobster-font), "Lobster Two", sans-serif;
+    font-size: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgb(57, 18, 134);
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: var(--bungee-font), "Bungee Tint", sans-serif;
+    font-size: 2rem;
+}
+
+/* h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    color: var(--skill-color);
+    font-family: var(--lobster-font);
+    font-size: 1.7rem;
+} */
+
+.center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-label {
+    color: whitesmoke;
+    background-color: var(--surface-color);
+    font: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    cursor: initial;
+}

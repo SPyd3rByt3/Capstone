@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %} Three-Stage Environment Setup {% endblock title %}
+
+{% block content %}
+<h1>Multi-Environment User Stories</h1>
+
+<div class="user-story-container">
+    <h2>Three-Stage Environment Setup</h2>
+    
+    <div class="user-story">
+        <p><strong>As a</strong> development team member, 
+        <strong>I want to</strong> be able to set up and switch between development, staging, and production environments with specific commands, 
+        <strong>so that</strong> I can test features in isolated environments that closely mirror the production system.</p>
+    </div>
+    
+    <div class="user-story-details">
+        <h3>Acceptance Criteria:</h3>
+        <ul>
+            <li>A unified command structure that works across all three environments</li>
+            <li>Environment-specific configuration files and variables</li>
+            <li>Isolated databases for each environment</li>
+            <li>Clear visual indicators of which environment is active</li>
+            <li>Data migration capabilities between environments</li>
+        </ul>
+        
+        <h3>Implementation Details:</h3>
+        
+        <div class="environment-stages">
+            <div class="stage">
+                <h4>Stage 1: Development Environment</h4>
+                <pre><code>
+# Set up development environment
+$ ./setup.sh --env=development
+
+# Key features:
+# - Local database with sample data
+# - Debug mode enabled
+# - Hot reloading
+# - Development-specific API keys
+                </code></pre>
+                <p>The development environment is optimized for rapid iteration and debugging, with tooling that facilitates quick feedback cycles.</p>
+            </div>
+            
+            <div class="stage">
+                <h4>Stage 2: Staging Environment</h4>
+                <pre><code>
+# Set up staging environment
+$ ./setup.sh --env=staging
+
+# Key features:
+# - Clone of production data (anonymized)
+# - Staging-specific service connections
+# - Performance monitoring enabled
+# - Feature flags for testing
+                </code></pre>
+                <p>The staging environment closely mimics production configuration but allows for safe testing of new features and integration points.</p>
+            </div>
+            
+            <div class="stage">
+                <h4>Stage 3: Production Environment</h4>
+                <pre><code>
+# Set up production environment
+$ ./setup.sh --env=production
+
+# Key features:
+# - Read-only local mirror
+# - Production database connections
+# - Optimized build settings
+# - Full security protocols
+                </code></pre>
+                <p>The production environment setup allows developers to test against real production configurations while maintaining necessary security boundaries.</p>
+            </div>
+        </div>
+        
+        <h3>Environment Management Commands:</h3>
+        <pre><code>
+# Switch between environments
+$ ./env.sh switch --to=staging
+
+# Compare configurations between environments
+$ ./env.sh diff --source=development --target=staging
+
+# Migrate data between environments
+$ ./env.sh migrate --from=staging --to=development
+        </code></pre>
+        
+        <h3>Visual Environment Indicators:</h3>
+        <ul>
+            <li>Development: Green header bar with "DEV" label</li>
+            <li>Staging: Yellow header bar with "STAGING" label</li>
+            <li>Production: Red header bar with "PRODUCTION" label</li>
+        </ul>
+    </div>
+</div>
+
+<div class="notes">
+    <h3>Analysis:</h3>
+    <p>This user story addresses the need for well-defined environment separation:</p>
+    <ul>
+        <li><strong>Who:</strong> development team member</li>
+        <li><strong>What:</strong> set up and switch between development, staging, and production environments with specific commands</li>
+        <li><strong>Why:</strong> to test features in isolated environments that closely mirror the production system</li>
+    </ul>
+    
+    <h3>Benefits:</h3>
+    <ul>
+        <li>Reduced "works on my machine" issues</li>
+        <li>More reliable deployment processes</li>
+        <li>Better testing capabilities across different environments</li>
+        <li>Improved onboarding for new team members</li>
+    </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,132 @@
+
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    color: rgba(57, 55, 55, 0.114);
+    padding: 1rem;
+}
+
+/* PHONE VIEW */
+@media(max-width:640px){
+    html {
+        font-size: 12px;
+    }
+
+    header {
+        flex-direction: column;
+        height: max-content;
+        padding: 2%;
+        /* width: 100%; */
+    }
+    
+    .header-left-side {
+        display: none;
+    }
+    
+    .header-right-side {
+        width: 100%
+    }
+    
+    .center-row {
+        align-items: flex-start;
+    }
+    
+    
+    /* Navigation Styles */
+    .nav-options {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* display: none; Hide by default
+        */
+    }
+    
+    .nav-options a {
+        margin: 1rem 0px;
+    }
+    
+    /* toggle function */
+    .nav-btn {
+        display: inline-flex;
+    }
+    
+    #nav-check:not(:checked)~.nav-options {
+        /* display: block; Show when checked */
+        height: 0px;
+        overflow: hidden;
+    }
+    
+    #nav-check:checked~.nav-optionns {
+        height: auto;
+        overflow: auto;
+    }
+    
+    .skills-list {
+        width: 100% !important;
+    }
+}
+ 
+
+/* TABLET VIEW */
+@media((min-width: 641px) and (max-width: 1007px)) {
+    html{font-size: 14px;}
+
+    .center-row {
+        font-display: column;
+    }
+
+    .about-description-container {
+        width: 100%;
+    }
+
+    .about-image-container {
+        margin-bottom: 4rem;
+    }
+
+    .skills-list {
+        font-display: row;
+    }
+}
+
+
+
+/* a {
+    color: rgb(57, 18, 134);
+    text-decoration: none;
+} */
+
+/* HAMBURGER BTN */
+.nav-btn {
+    display: inline-flex;
+}
+
+.nav-btn span {
+    display: block;
+}
+
+.nav-btn span:nth-child(1) {
+    height: 2px;
+    width: 20px;
+    background: rgb(172, 20, 20);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Layout */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+/* @media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack container elements on smaller screens */
+
