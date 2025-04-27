@@ -49,9 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages',
     'notes',
-    'content',
-    'django.contrib.sites'
-    'django.contrib.sitemaps'
+    'content'
 
 ]
 

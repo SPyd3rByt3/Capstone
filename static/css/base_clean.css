@@ -1,0 +1,515 @@
+/* Consolidated and cleaned base CSS for sleek presentation */
+
+/* Color Palette */
+:root {
+    --background-color: #f0f0f030; /* Light Gray */
+    --text-color: #333; /* Dark Gray */
+    --header-color: #8c8274;
+    --footer-color: #8c8274;
+    --skill-color: #50592e;
+    --hover-color: #ffffff; 
+    --primary-color: #05ffffda; /* Coral */
+    --secondary-color: #6fa3ef; /* Sky Blue */
+    --accent-color: #f7c94c; /* Golden Yellow */
+
+    --boldonse-font: "Boldonse", system-ui;
+    --bungee-font: "Bungee Tint", sans-serif;
+    --lobster-font: "Lobster Two", sans-serif;
+    --DM-font: "DM Sans", sans-serif;
+}
+
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { 
+    font-size: 16px;
+    font-family: var(--lobster-font), "Lobster Two", sans-serif;
+    background-color: var(--skill-color);
+    background-image: url('../img/pho dat bungee.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    color: rgb(57, 18, 134);
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: var(--bungee-font), "Bungee Tint", sans-serif;
+    font-size: 2rem;
+}
+
+.center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar styles */
+.custom-navbar {
+  background-color: #121212;
+  border-bottom: 1px solid #333;
+}
+
+.custom-navbar .navbar-brand {
+  color: #e0e0e0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #ffffff;
+}
+
+.custom-navbar .nav-link {
+  color: #b0b0b0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  border-color: #444;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Header styles */
+header {
+    background-color: var(--header-color);
+    height: 60px;
+    position: sticky;
+    top: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-left-side {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right-side {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#nav-toggle:checked ~ .nav-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-options {
+    display: none;
+}
+
+.nav-options a {
+    color: var(--text-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 2%;
+    padding: 1% 2%;
+}
+
+.nav-options a:hover {
+    border-bottom: solid 2px whitesmoke;
+}
+
+footer {
+    background-color: var(--footer-color);
+    height: 40px;
+}
+
+/* Responsive styles */
+@media(max-width:640px){
+    html {
+        font-size: 12px;
+    }
+
+    header {
+        flex-direction: column;
+        height: max-content;
+        padding: 2%;
+    }
+    
+    .header-left-side {
+        display: none;
+    }
+    
+    .header-right-side {
+        width: 100%
+    }
+    
+    .center-row {
+        align-items: flex-start;
+    }
+    
+    .nav-options {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .nav-options a {
+        margin: 1rem 0px;
+    }
+    
+    .nav-btn {
+        display: inline-flex;
+    }
+    
+    #nav-check:not(:checked)~.nav-options {
+        height: 0px;
+        overflow: hidden;
+    }
+    
+    #nav-check:checked~.nav-options {
+        height: auto;
+        overflow: auto;
+    }
+    
+    .skills-list {
+        width: 100% !important;
+    }
+
+    /* Responsive adjustments for projects list */
+    .projects-list {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .project-card {
+        width: 100%;
+        padding: 1rem 0.5rem;
+    }
+
+    /* Responsive adjustments for forms */
+    form {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    /* Responsive adjustments for buttons */
+    .btn, .btn-add-project, .btn-update, .btn-delete, .btn-retro {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Smaller project images on projects list page */
+.project-card img {
+    padding: 0.5rem;
+    max-width: 222px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin-bottom: 1rem;
+}
+
+/* Change font for projects list section */
+.projects-section, .projects-list, .project-card {
+    font-family: var(--bungee-font), "Bungee Tint", sans-serif;
+}
+
+/* Projects list layout: row style */
+.projects-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 1rem;
+    background-color: rgba(216, 240, 0, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* New project page background */
+.new-project-section {
+    background-color: #2f2f2f; /* Charcoal dark */
+    padding: 2rem;
+    border-radius: 8px;
+    color: white;
+}
+
+/* Button styles for projects list page */
+.btn-add-project {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 128, 0, 0.4);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+/* Styled form fields for notes create page */
+.note-create .field {
+    margin-bottom: 1rem;
+}
+
+.note-create label {
+    display: block;
+    font-family: 'Press Start 2P', cursive, monospace;
+    color: #00ff00;
+    margin-bottom: 0.5rem;
+    text-shadow:
+        0 0 5px #00ff00,
+        0 0 10px #00ff00;
+}
+
+.note-create input[type="text"],
+.note-create textarea,
+.note-create input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #101010;
+    border: 2px solid #00ff00;
+    border-radius: 6px;
+    color: #00ff00;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 0.9rem;
+    box-shadow:
+        0 0 5px #00ff00,
+        0 0 10px #00ff00;
+    transition: border-color 0.3s ease;
+}
+
+.note-create input[type="text"]:focus,
+.note-create textarea:focus,
+.note-create input[type="file"]:focus {
+    border-color: #ff00cc;
+    box-shadow:
+        0 0 10px #ff00cc,
+        0 0 20px #ff00cc;
+    outline: none;
+}
+
+/* 80s/90s video game style for about page */
+.score-banner {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    padding: 0.5rem 1rem;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 1rem;
+    color: #00ff00;
+    text-shadow:
+        0 0 5px #00ff00,
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 40px #00ff00;
+    border-bottom: 3px solid #00ff00;
+    user-select: none;
+    animation: flicker 1.5s infinite alternate;
+}
+
+/* 80s digital style for main body and skills */
+body, main, .skills-list, .about-description-container, .note-details, .projects-section {
+    font-family: 'Press Start 2P', cursive, monospace;
+    color: #00ff00;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.8) 2px,
+        rgba(0, 255, 0, 0.1) 3px,
+        rgba(0, 0, 0, 0.8) 4px
+    );
+    text-shadow:
+        0 0 5px #00ff00,
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00ff00 inset;
+}
+
+/* Notes list page banner style */
+.fun-banner {
+    background-color: var(--skill-color);
+    color: #00ff00;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00ff00 inset;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.retro-banner p {
+    margin: 0;
+    animation: flicker 1.5s infinite alternate;
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow:
+            0 0 5px #00ff00,
+            0 0 10px #00ff00,
+            0 0 20px #00ff00,
+            0 0 40px #00ff00;
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: none;
+    }
+}
+
+/* Retro button style for about page */
+.btn-retro {
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    color: #00ff00;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    box-shadow:
+        0 0 5px #00ff00,
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 40px #00ff00;
+    text-decoration: none;
+    font-weight: 600;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    border: 2px solid #00ff00;
+}
+
+.btn-retro:hover {
+    background: linear-gradient(90deg, #3333ff, #ff00cc);
+    color: #00ff00;
+    box-shadow:
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 30px #00ff00,
+        0 0 50px #00ff00;
+}
+
+.btn-add-project:hover {
+    background-color: #45a049;
+}
+
+.btn-update {
+    background-color: #2196F3; /* Blue */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(33, 150, 243, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-update:hover {
+    background-color: #1976D2;
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(244, 67, 54, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+/* Cancel button style */
+.btn-cancel {
+    background-color: #9e9e9e; /* Gray */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(158, 158, 158, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-right: 8px;
+}
+
+.btn-cancel:hover {
+    background-color: #757575;
+}
+
+@media((min-width: 641px) and (max-width: 1007px)) {
+    html{font-size: 14px;}
+
+    .center-row {
+        font-display: column;
+    }
+
+    .about-description-container {
+        width: 100%;
+    }
+
+    .about-image-container {
+        margin-bottom: 4rem;
+    }
+
+    .skills-list {
+        font-display: row;
+    }
+}

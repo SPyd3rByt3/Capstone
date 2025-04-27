@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from .models import Note
 from django.urls import reverse_lazy
 from .forms import NoteForm
@@ -32,3 +32,30 @@ class NoteCreate(CreateView):
     form_class = NoteForm
     template_name = 'notes/create.html'
     success_url = reverse_lazy('notes_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form_title"] = "Create new note"
+        return context
+    
+
+class NoteDetail(DetailView):
+    model = Note
+    template_name = "notes/detail.html"
+
+
+class NoteUpdate(UpdateView):
+    model = Note
+    template_name = "notes/create.html"
+    form_class = NoteForm
+    success_url = reverse_lazy("notes_list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form_title"] = "Create new note"
+        return context
+    
+class NoteDelete(DeleteView):
+    template_name = "notes/delete.html"
+    model = Note
+    success_url = reverse_lazy("notes_list")

@@ -1,0 +1,42 @@
+
+stats-container {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    gap: unset;
+    margin-top: 40px;
+
+}
+
+
+
+
+/* ----------------------------------------MEDIA----QUERY----------------------------------------------- */
+
+@media (max-width:1024) and (min-width: 768px) {
+    /* Tablet Only */
+}
+
+
+
+
+@media (max-width:767px) {
+    /* MOBILE PHONE SCREENS */
+
+    .features-grid {
+        grid-template-columns: repeat(1, fr);
+    }
+
+    .features-grid .features-card p {
+        display: none;
+    }
+
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+    
+    }
+    
+}

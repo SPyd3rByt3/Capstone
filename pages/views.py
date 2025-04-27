@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')

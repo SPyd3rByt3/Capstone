@@ -4,11 +4,15 @@
 
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/note-create.css' %}">
 {% endblock %}
 
+<h1>{{ form_title }}</h1>
 
 {% block content %}
+<div class="fun-banner retro-banner">
+    <p>👾👾👾      Hey there! Dropping a note is like sending a pixelated high-five 👾. Don't be shy, say hi!   👾 ...and IF you've got ideas or the skills to LEVEL-UP this site, please drop some RAD-CODE into a Note. LEAVE IT!!!       👾👾👾 </p>
+</div>
+
 <div class='note-create'>
     <h1>Create a new note</h1>
 
@@ -17,24 +21,20 @@
 
         <div class="field">
             <label>Title</label>
-            {{form.title}}
-        </div>
-
-        <div class="field">
-            <label>Image</label>
-            {{form.image}}
+            <input type="text" name="title" value="{{ form.title.value|default_if_none:'' }}">
         </div>
 
         <div class="field">
             <label>Content</label>
-            {{form.content}}
+            <textarea name="content">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
 
-        <!-- {{form.as_p}} -->
+        <div class="field">
+            <label>Image</label>
+            <input type="file" name="image">
+        </div>
 
-        <button class="btn btn-dark">Save note</button>
+        <button type="submit" class="btn btn-add-project">Save</button>
     </form>
-
-
 </div>
 {% endblock %}
