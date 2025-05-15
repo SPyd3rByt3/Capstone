@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Note Details{% endblock %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/note-details.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="note-details">
+
+    <h1>{{note.title}}</h1>
+    <label> Created on {{note.created_on}}</label>
+
+
+    <div class="parent">
+        {% if note.image %}
+        <img src="{{note.image.url}}">
+        {% endif %}
+
+        <p>{{note.content}}</p>
+    </div>
+
+    <br />
+    <div class ="controls">
+        <a class="btn btn-update" href="{% url 'note-detail' note.id %}">Update Note</a>
+        <a class="btn btn-delete" href="{% url 'note-delete' note.id %}">Delete Note</a>
+    </div>
+
+    <div class="comments">
+        {% for cmt in comments %}
+        <div class="comment">
+            <label class="user">{{cmt.author.username}}</label>
+            <p>{{cmt.content}}</p>
+            <label class="date">{{cmt.creaetd_on}}</label>
+        </div>
+    </div>
+{% endfor %}
+
+    <div class="comment">
+        <form method="post" action="{% url 'create_comment' %}">
+            {% csrf_token %}
+            <label class="user">Create NEW comment</label>
+            <input type="hidden" name="note_id" value="{{note.id}}">
+            <textarea name="content" rows="3"></textarea>
+            <button class="btn btn-sm btn-outline-info">Save</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

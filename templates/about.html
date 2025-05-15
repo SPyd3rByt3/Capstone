@@ -74,6 +74,7 @@
                         <li>MongoDB</li>
                         <li>Linux</li>
                         <li>Figma</li>
+                        <li>SQL</li>
 
                     </ul>
                 </div>
@@ -98,11 +99,73 @@
         </div> -->
     </section>
 
+     <!-- Projects Section - Converted from anchor to full section -->
+     <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-card">
+                <h3>Temperature Monitor</h3>
+                <p>A temperature monitoring application with real-time updates and responsive design.</p>
+                <div class="project-links">
+                    <a href="https://github.com/SPyd3rByt3/Temperature-ch52" class="btn btn-retro" target="_blank">View Repository</a>
+                    <a href="https://spyd3rbyt3.github.io/Temperature-ch52/" class="btn btn-retro" target="_blank">Live Demo</a>
+                </div>
+                <div class="project-preview">
+                    <iframe src="https://spyd3rbyt3.github.io/Temperature-ch52/" width="100%" height="400" frameborder="0" title="Temperature Monitor Live Preview"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>This project demonstrates temperature monitoring capabilities with an intuitive user interface. No coding knowledge required to view and interact with the application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-    <!-- Rest of the content -->
+    <!-- Contact Section - Converted from anchor to full section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:DailyDoseOfSeth@gmail.com">DailyDoseOfSeth@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+11234567890">(605) 939-4982</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/sethpatterson" target="_blank">LinkedIn Profile</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/SPyd3rByt3" target="_blank">GitHub Profile</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Me a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-retro">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 </main>
 
 <!-- Don't include projects_list.html here, since it extends base.html -->
 <!-- Instead, create a separate view and URL for the projects page -->
 {% endblock content %}
+
+    <!-- Rest of the content -->

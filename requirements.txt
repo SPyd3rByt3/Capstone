@@ -1,0 +1,7 @@
+Django>=5.2
+django-environ
+channels
+channels-redis
+djangorestframework
+psycopg2-binary
+redis

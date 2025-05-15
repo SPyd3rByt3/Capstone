@@ -12,7 +12,7 @@
 <div class="note-list">
 
     <div class="fun-banner retro-banner">
-        <p>👾👾👾      Hey there! Dropping a note is like sending a pixelated high-five 👾. Don't be shy, say hi!   👾 ...and IF you've got ideas or the skills to LEVEL-UP this site, please drop some RAD-CODE into a Note. LEAVE IT!!!       👾👾👾 </p>
+        <p>👾👾👾      Hey there! Dropping a note is like sending a pixelated high-five 👾. Don't be shy, say hi!   👾 ...and IF you've got ideas or the skills to LEVEL-UP this site, please drop some RAD-CODE into a Note.   Stay digi-licious!    LEAVE IT!!!       👾👾👾 </p>
     </div>
 
     <div class="header">
@@ -24,13 +24,20 @@
     <div class="all-notes">
         {% for note in note_list %}
         <div class="note-item">
-
             {% if note.image %}
+            {% if note.link_url %}
+            <a href="{{ note.link_url }}" target="_blank" rel="noopener noreferrer">
+                <img src="{{ note.image.url }}">
+            </a>
+            {% else %}
             <img src="{{ note.image.url }}">
             {% endif %}
+            {% endif %}
 
-            <h5>{{note.title}}</h5>
-            <label>{{note.created_on}}</label>
+            <a href="{% url 'note-detail' slug=note.slug %}">
+                <h5>{{note.title}}</h5>
+                <label>{{note.created_on}}</label>
+            </a>
         </div>  
         {% endfor %}
     </div>

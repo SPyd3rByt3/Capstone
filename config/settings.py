@@ -18,24 +18,36 @@ import environ
 #creaete SECURE connection
 os.environ["SSL_CERTIFI_FILE"] = certifi.where()
 
-#load env file
-env = environ.Env()
-environ.Env.read_env()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#load env file
+env = environ.Env()
+environ.Env.read_env(env_file=BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pm@uhahrfl9$@)y4lb&jy1l_pw^y*+)x!=c@l2e*m0&ge*+2km'
+SECRET_KEY = env('SECRET_KEY')
+
+# (line 33) SECRET_KEY = 'django-insecure-pm@uhahrfl9$@)y4lb&jy1l_pw^y*+)x!=c@l2e*m0&ge*+2km'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+DEBUG = env.bool('DEBUG', default=False)
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+
+#DATABASES = {
+#    'default': env.db(default='sqlite:///db.sqlite3'),
+#}
+
+# REDIS_URL = env('REDIS_URL')
+REDIS_URL = env('REDIS_URL', default='redis://localhost:6379/0')
+
+OPENAI_API_KEY = env('OPENAI_API_KEY')
 
 
 # Application definition
@@ -47,9 +59,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', #reqd for djangoallauth
     'pages',
     'notes',
-    'content'
+    'content',
+    #'AI',
+    #'AIcontent',
+    #'analytics',
+    #'API',
+    #'core',
+    #'frontend',
+    #'collab',
+    #'channels',
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
 
 ]
 
@@ -86,12 +110,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
+
 DATABASES = {
-    'default': {
+     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+     }
 }
+
+
 
 
 # Password validation

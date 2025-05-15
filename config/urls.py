@@ -23,11 +23,19 @@ from django.conf.urls.static import static
 
 
 
+from django.urls import include, path
+from django.contrib import admin
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('notes/', include('notes.urls')),
     path('content/', include('content.urls')),
+    #path('api/aicontent/', include('AIcontent.urls')),
+    #path('analytics/', include('analytics.urls')),
+    #path('core/', include('core.urls')),
+    #path('frontend/', include('frontend.urls')),
+    #path('collab/', include('collab.urls')),
 ]
 
 
