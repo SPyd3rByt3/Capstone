@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-from .models import Note
+from .models import Note, NoteComment
 from django.urls import reverse_lazy
 from .forms import NoteForm
 
@@ -39,23 +39,67 @@ class NoteCreate(CreateView):
         return context
     
 
+from django.shortcuts import get_object_or_404
+
 class NoteDetail(DetailView):
     model = Note
     template_name = "notes/detail.html"
 
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Note, slug=slug)
 
+    
+class NoteDelete(DeleteView):
+    template_name = "notes/delete.html"
+    model = Note
+    success_url = reverse_lazy("notes_list")
+
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Note, slug=slug)
+    
+
+
+
+class NoteDetail(DetailView):
+    template_name = "notes/details.html"
+    model = Note
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["comments"] = NoteComment.objects.filter(note=self.object).order_by("-created_on")
+        return context
+    
 class NoteUpdate(UpdateView):
     model = Note
     template_name = "notes/create.html"
     form_class = NoteForm
     success_url = reverse_lazy("notes_list")
 
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Note, slug=slug)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form_title"] = "Create new note"
         return context
     
-class NoteDelete(DeleteView):
-    template_name = "notes/delete.html"
-    model = Note
-    success_url = reverse_lazy("notes_list")
+
+def create_comment(request):
+    content = request.POST.get('content')
+    note_id = request.POST.get('note_id')
+    user =request.user
+
+    note = Note.objects.get(id=note_id)
+
+    comment = NoteComment.objects.created(
+        note = note,
+        content = content,
+        author = user,
+    )
+
+    comment.save()
+
+    return redirect('note-detail', pk=note_id)
